@@ -1,4 +1,23 @@
 
+<?php
+
+include('class/function.php');
+
+
+ Session_start();
+
+ $id =  $_SESSION['adminID'];
+
+ if ($id == null) {
+     header('location: index.php');
+ }
+
+
+
+?>
+
+
+
 <?php include_once('includes/header.php'); ?>
 
     <body class="sb-nav-fixed">
@@ -40,3 +59,5 @@
         </div>
         
  <?php include_once('includes/footer.php') ?>
+
+
