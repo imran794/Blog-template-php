@@ -1,64 +1,45 @@
-
-
 <?php
 
-include('class/function.php');
+include('admin/class/function.php');
 
+$obj= new adminblog();
 
-$obj = new adminblog();
-
-if (isset($_POST['admin_login'])) {
-    $obj->admin_login($_POST);
-}
-
-
-
+ $getcat = $obj->manage_category();
+ $getpost = $obj->despaly_post_public();
 
 ?>
 
 
 
-<?php include_once('includes/header.php'); ?>
+<?php include_once('include/head.php'); ?>
 
-    <body class="bg-primary">
-        <div id="layoutAuthentication">
-            <div id="layoutAuthentication_content">
-                <main>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-5">
-                                <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
-                                    <div class="card-body">
-                                        <form action="" method="POST">
-                                            <div class="form-group">
-                                                <label class="small mb-1" for="inputEmailAddress">Email</label>
-                                                <input class="form-control py-4" id="inputEmailAddress" name="admin_email" type="email" placeholder="Enter email address" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="small mb-1" for="inputPassword">Password</label>
-                                                <input class="form-control py-4" name="admin_pass" id="inputPassword" type="password" placeholder="Enter password" />
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input class="custom-control-input" id="rememberPasswordCheck" type="checkbox" />
-                                                    <label class="custom-control-label" for="rememberPasswordCheck">Remember password</label>
-                                                </div>
-                                            </div>
-                                            <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
-                                                <input type="submit" name="admin_login" value="Login" class="btn btn-primary">
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="card-footer text-center">
-                                        <div class="small"><a href="register.html">Need an account? Sign up!</a></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </main>
-            </div>
+<?php include_once('include/preloader.php'); ?>
+
     
 
-  <?php include_once('includes/footer.php'); ?>
+    <!-- Header -->
+    <?php include_once('include/header.php'); ?>
+
+    <!-- Page Content -->
+    <!-- Banner Starts Here -->
+      <?php include_once('include/banner.php') ?>
+    <!-- Banner Ends Here -->
+
+   <?php include_once('include/app.php'); ?>
+
+
+    <section class="blog-posts">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+                 <?php include_once('include/blog.php'); ?>
+          </div>
+          <div class="col-lg-4">
+            <?php include_once('include/sidebar.php'); ?>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+ <?php include_once('include/footer.php'); ?>

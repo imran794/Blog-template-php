@@ -1,4 +1,3 @@
-
 <?php
 
 include('class/function.php');
@@ -7,27 +6,30 @@ include('class/function.php');
  Session_start();
 
  $id =  $_SESSION['adminID'];
+ $obj = new adminblog();
 
  if ($id == null) {
      header('location: index.php');
  }
 
-
+ if (isset($_GET['adminlogout'])) {
+     if ($_GET['adminlogout'] == 'logout') {
+         $obj-> adminlogout();
+     }
+ }
 
 ?>
 
-
-
 <?php include_once('includes/header.php'); ?>
 
-    <body class="sb-nav-fixed">
-      <?php include('includes/topnav.php'); ?>
-        <div id="layoutSidenav">
-            <?php include('includes/sidebar.php'); ?>
+<body class="sb-nav-fixed">
+    <?php include('includes/topnav.php'); ?>
+    <div id="layoutSidenav">
+        <?php include('includes/sidebar.php'); ?>
         <div id="layoutSidenav_content">
-                <main>
-                    <div class="contriner-fluid">
-                        <?php
+            <main>
+                <div class="contriner-fluid">
+                    <?php
 
                             if(isset($view)){
                                 if ($view == 'dashboard') {
@@ -49,15 +51,11 @@ include('class/function.php');
 
                             }
 
-
-
                         ?>
-                    </div>
-                </main>
-             <?php include('includes/dashfooter.php'); ?>
-            </div>
+                </div>
+            </main>
+            <?php include('includes/dashfooter.php'); ?>
         </div>
-        
- <?php include_once('includes/footer.php') ?>
+    </div>
 
-
+    <?php include_once('includes/footer.php') ?>
