@@ -11,7 +11,7 @@
                     </div>
                     <div class="down-content">
                       <span><?php echo $post['category_name']; ?></span>
-                      <a href="post-details.html"><h4><?php echo $post['post_title']; ?></h4></a>
+                      <a href="singlepost.php?view=singlepost&&id=<?php echo $post['post_id'] ?>"><h4><?php echo $post['post_title']; ?></h4></a>
                       <ul class="post-info">
                         <li><a href="#"><?php echo $post['post_author'] ?></a></li>
                         <li><a href="#"><?php echo $post['post_date']; ?></a></li>

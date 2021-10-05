@@ -40,13 +40,25 @@
                          <td><?php echo $post['post_content']; ?></td>
                          <td>
                          	<img width="150" src="../upload/<?php echo $post['post_image'] ?>" alt="">
+                            <a href="edit_img.php?status=edit_img&&id=<?php echo $post['post_id']; ?>" title="">Change Image</a>
                          </td>
                          <td><?php echo $post['post_author']; ?></td>
                          <td><?php echo $post['post_date']; ?></td>
                          <td><?php echo $post['category_name']; ?></td>
-                         <td><?php echo $post['post_status']; ?></td>
                          <td>
-                             <a href="" class="btn btn-primary" title="">Edit</a>
+                             <?php if ($post['post_status'] == 1){
+                                echo 'Published';
+                            }
+                            else{
+                                echo 'Unpublished';
+                            }
+
+                              ?>
+                                 
+                            
+                         </td>
+                         <td>
+                             <a href="edit_post.php?status=editpost&&id=<?php echo $post['post_id']; ?>" class="btn btn-primary" title="">Edit</a>
                              <a href="" title="" class="btn btn-danger">Delete</a>
                          </td>
                      </tr>

@@ -126,6 +126,48 @@
              return $post;
           }
        }
+
+
+       public function editimage($data)
+       {
+          $id = $data['edit_data'];
+          $imgnam = $_FILES['change_img']['name'];
+          $temnam = $_FILES['change_img']['tmp_name'];
+
+          $query = "UPDATE post SET post_image='$imgnam' WHERE post_id='$id'";
+
+          if (mysqli_query($this->conn, $query)) {
+              move_uploaded_file($temnam, '../upload/'.$imgnam);
+              return 'Image Update Successfully!';
+          }
+       }
+
+       public function geteditvalue($id)
+       {
+          $query = "SELECT * FROM post_with_category WHERE post_id='$id'";
+          if (mysqli_query($this->conn ,$query)) {
+             $post_info = mysqli_query($this->conn ,$query);
+             $post_data = mysqli_fetch_assoc($post_info);
+             return $post_data;
+          }
+       }
+
+       public function poststore($data)
+       {
+           
+           $post_title = $data['post_title'];
+           $post_content = $data['post_content'];
+           $post_summery = $data['post_summery'];
+           $post_tags = $data['post_tags'];
+           $post_id = $data['post_edit_id'];
+
+           $query = "UPDATE post SET post_title='$post_title',post_content='$post_content',post_summery='$post_summery',post_tags='$post_tags' WHERE post_id='$post_id'";
+
+           if (mysqli_query($this->conn, $query)) {  
+              return 'Post Update Successfully!';
+                  
+           }
+       }
    }
 
 

@@ -48,6 +48,15 @@ include('class/function.php');
                                     include('view/view_postmanage.php');
 
                                 }
+                                 elseif($view == 'editimage'){
+                                    include('view/view_edit_image.php');
+
+                                }
+                                 elseif($view == 'editpsot'){
+                                    include('view/edit_post_view.php');
+
+                                }
+
 
                             }
 
